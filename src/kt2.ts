@@ -1,13 +1,11 @@
-import { log } from "console";
-
 class User {
   name: string;
-  public login: string;
+  private login: string;
   private password: string;
 
   constructor(name: string, login: string, password: string) {
     this.name = name;
-    this.login = login;
+    this.login = this.setLogin(login);
     this.password = password;
   }
 
@@ -24,7 +22,14 @@ class User {
   setName(name: string): void {
     this.name = name;
   }
+  setLogin(login:string):string{
+    return login;
+  }
+  setPassword(password:string){
+    this.password = password;
+  }
 }
 const user1: User = new User("Valya", "val", "123");
 user1.setName("Ivan");
+user1.name = "Sanya";
 user1.showInfo();
